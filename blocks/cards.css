@@ -18,12 +18,12 @@
     margin: 0;
 }
 
-.card__image{
+.cards__image{
     width: 282px;
     height: 282px;
 }
 
-.card__description{
+.cards__description{
     display: flex;
     background-color:white;
     color: black;
@@ -35,7 +35,7 @@
     justify-content: space-between;
 }
 
-.card__title{
+.cards__title{
     justify-content: space-between;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -47,7 +47,7 @@
     margin: 0;
 }
 
-.card__like-button{
+.cards__like-button{
     background: transparent url(../images/heart-button.svg) center no-repeat;
     width: 21px;
     height: 18px;
