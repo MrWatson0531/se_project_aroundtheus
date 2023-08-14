@@ -17,6 +17,7 @@
     width: 24px;
     grid-area: button;
     transition: color;
+    margin-left: 18px;
 }
 
 .profile__edit-button:hover{
@@ -35,6 +36,7 @@
     background: gray;
 }
 .profile__title{
+    font-family: 'Inter';
     font-size: 42px;
     line-height: 1.2;
     font-weight: 500;
@@ -43,6 +45,7 @@
 }
 
 .profile__description{
+    font-family: 'Inter';
     font-size: 18px;
     line-height: 1.2;
     font-weight: 400;
