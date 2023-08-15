@@ -39,6 +39,7 @@
 }
 
 .cards__title{
+    font-family: 'Inter';
     justify-content: space-between;
     text-overflow: ellipsis;
     white-space: nowrap;
