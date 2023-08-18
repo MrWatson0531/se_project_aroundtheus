@@ -19,7 +19,6 @@
     grid-area: button;
     transition: color;
     margin-left: 18px;
-    border-color: white;
     margin-right: 18px;
     border: 1px solid #FFF;
 }
@@ -35,7 +34,6 @@
     height: 50px;
     margin-left: auto;
     transition: color .3s ease;
-    border-color: white;
     border-radius: 2px;
     border: 2px solid #FFF;
 }
@@ -53,6 +51,8 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 .profile__description{
@@ -84,6 +84,7 @@
         margin-bottom: 36px;
         padding-left: 19px;
         padding-right: 19px;
+        align-items: center;
     }
 
     .profile__info{
@@ -91,6 +92,7 @@
         flex-wrap: wrap;
         justify-content: center;
         width: 100%;
+        align-items: center;
     }
 
     .profile__description{
@@ -98,6 +100,8 @@
         text-align: center;
         margin-bottom: 36px;
         margin-top: 14px;
+        font-size: 14px;
+        margin-left:19px;
     }
 
     .profile__add-button{
@@ -106,21 +110,18 @@
     }
     .profile__title{
         font-size: 22px;
-        margin-bottom: 0;
-        margin-top: 0;
-        font-weight: 500;
+        margin: 0 ;
         width: 196px;
-        height: 22px;
     }
     .profile__image{
         margin-bottom: 26px;
-        border-radius: 50%;
-        object-fit: cover;
-        background-position: center;
+        margin-right: 0;
     }
     .profile__edit-button{
         height: 18px;
         width: 18px;
+        margin-left: 10px;
+        margin-right: 0;
     }
 }
 
