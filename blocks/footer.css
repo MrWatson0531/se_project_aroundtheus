@@ -1,6 +1,6 @@
 .footer_copyright{
     color: #545454;
-    font-family: 'Inter', 'arial';
+    font-family: 'Inter', arial, sans-serif;
     font-size: 18px;
     font-weight: 400;
     margin-top: 67px;
@@ -9,6 +9,6 @@
 
 @media screen and (max-width:480px){
     .footer_copyright{
-        
+        margin: 48px 19px 36px 19px;
     }
 }

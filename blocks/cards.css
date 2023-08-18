@@ -23,7 +23,7 @@
 }
 
 .cards__description{
-    font-family: 'Inter', 'arial';
+    font-family: 'Inter', Arial, sans-serif;
     font-weight: 900;
     font-size: 24px;
     display: flex;
@@ -38,7 +38,7 @@
 }
 
 .cards__title{
-    font-family: 'Inter' 'arial' sans-serif;
+    font-family: 'Inter', Arial, sans-serif;
     justify-content: space-between;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -54,9 +54,10 @@
     background: transparent url(../images/heart-button.svg) center no-repeat;
     width: 21px;
     height: 18px;
+    border: none;
 }
 
 .cards__like-button:hover{
-    fill: #000;
     opacity: 0.5;
+    cursor: pointer;
 }
