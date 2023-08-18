@@ -1,8 +1,14 @@
 .footer_copyright{
     color: #545454;
-    font-family: 'Inter' 'arial' sans-serif;
+    font-family: 'Inter', 'arial';
     font-size: 18px;
     font-weight: 400;
     margin-top: 67px;
     margin-bottom: 60px;
+}
+
+@media screen and (max-width:480px){
+    .footer_copyright{
+        
+    }
 }
