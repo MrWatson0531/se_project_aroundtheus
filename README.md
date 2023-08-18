@@ -1,5 +1,15 @@
 # Project 3: Around The U.S.
 
+### description
+
+A project showcasing explorer Jacques Cousteau.
+
+###  technnologies 
+
+* HTML
+* CSS
+* Figma
+
 ### Overview  
 
 * Intro  
