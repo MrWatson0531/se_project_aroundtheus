@@ -9,6 +9,7 @@ A project showcasing explorer Jacques Cousteau.
 * HTML
 * CSS
 * Figma
+* JavaScript
 
 ### Overview  
 
