@@ -20,7 +20,7 @@
                 <img src="./images/jacques-cousteau.png" alt="Avatar" class="profile__image"/>
                 <div class="profile__info">
                     <h1 class="profile__title">Jacques Cousteau</h1>
-                    <button class="profile__edit-button" type="button"></button>
+                    <button class="profile__edit-button" id="profile-edit-button" type="button"></button>
                     <p class="profile__description">Explorer</p>
                 </div>
                 <button class="profile__add-button" type="button"></button>
@@ -73,10 +73,10 @@
             <p class="footer footer_copyright">&copy;2023 Michael Watson</p>
         </footer>
         </div>
-        <div class="modal">
+     v    <div class="modal" id="profile-edit-modal">
         <div class="modal__opened">
             <div class="modal__container">
-                <button class="modal__close"></button>
+                <button class="modal__close" id="modal-close"></button>
                 <p class="modal__heading">Edit Profile</p>
                 <form class="modal__form">
                     <input type="text" name="title" class="modal__input">
