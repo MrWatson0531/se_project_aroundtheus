@@ -28,10 +28,50 @@ const initialCards = [
 const profileEditButton = document.querySelector("#profile-edit-button");
 const profileEditModal = document.querySelector("#profile-edit-modal");
 const profileCloseModal = document.querySelector("#modal-close");
+const profileTitle = document.querySelector(".profile__title");
+const profileDescription = document.querySelector(".profile__description");
+const profileTitleInput = document.querySelector("#profile-title-input");
+const profileDescriptionInput = document.querySelector(
+  "#profile-description-input"
+);
+const profileEditForm = profileEditModal.querySelector(".modal__form");
+const cardListEl = document.querySelector(".cards__list");
+const cardTemplate =
+  document.querySelector("#card-template").content.firstElementChild;
+
+function closePopup() {
+  profileEditModal.classList.remove("modal__opened");
+}
+
+function getCardElement(cardData) {
+  const cardElement = cardTemplate.cloneNode(true);
+  const cardImageEl = cardElement.querySelector(".cards__image");
+  const cardTitleEl = cardElement.querySelector(".cards__title");
+  const cardImageAlt = cardElement.querySelector(".cards__title");
+  cardTitleEl.textContent = cardData.name;
+  cardImageEl.src = cardData.link;
+  cardImageAlt.alt = cardData.name;
+
+  return cardElement;
+}
+
+function handleProfileEditSubmit(e) {
+  e.preventDefault();
+  profileTitle.textContent = profileTitleInput.value;
+  profileDescription.textContent = profileDescriptionInput.value;
+  closePopup();
+}
 
 profileEditButton.addEventListener("click", () => {
+  profileTitleInput.value = profileTitle.textContent;
+  profileDescriptionInput.value = profileDescription.textContent;
   profileEditModal.classList.add("modal__opened");
 });
-profileCloseModal.addEventListener("click", () => {
-  profileEditModal.classList.remove("modal__opened");
+profileCloseModal.addEventListener("click", closePopup);
+
+profileEditForm.addEventListener("submit", handleProfileEditSubmit);
+
+initialCards.forEach((cardData) => {
+  const cardElement = getCardElement(cardData);
+  cardListEl.append(cardElement);
 });

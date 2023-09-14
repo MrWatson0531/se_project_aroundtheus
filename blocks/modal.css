@@ -12,6 +12,7 @@
 
 .modal__opened{
     display: flex;
+    justify-content: center;
 }
 
 .modal__container{
@@ -71,6 +72,10 @@
     margin-top: 48px;
 }
 
+.modal__button:hover{
+    opacity: 0.6;
+    cursor: pointer;
+}
 
 @media screen and (max-width:480px){
     .modal__container{
@@ -88,6 +93,7 @@
         height: 26px;
         margin-right: 19px;
         position: absolute;
+        right: -15px;
     }
 
     .modal__heading{
