@@ -74,6 +74,7 @@
     border-radius: 50%;
     object-fit: cover;
     background-position: center;
+    margin-right: 4px;
 }
 
 @media screen and (max-width:480px){
