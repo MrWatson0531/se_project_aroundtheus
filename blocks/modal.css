@@ -8,11 +8,11 @@
     z-index: 999;
     display: none;
     padding: 0 19px;
+    justify-content: center;
 }
 
-.modal__opened{
+.modal_opened{
     display: flex;
-    justify-content: center;
 }
 
 .modal__container{
@@ -39,6 +39,11 @@
     cursor: pointer;
 } 
 
+.modal__close:hover{
+    opacity: 0.6;
+    cursor: pointer;
+}
+
 .modal__heading{
     font-family: 'Inter', Arial, sans-serif;
     color: #000;
@@ -51,6 +56,7 @@
 .modal__form{
     display:flex;
     flex-direction: column;
+    font-family: 'Inter', Arial, sans-serif;
 }
 
 .modal__input{
