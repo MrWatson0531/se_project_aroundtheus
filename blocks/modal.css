@@ -45,7 +45,7 @@
     font-size: 24px;
     font-weight: 900;
     height: 23px;
-    margin: 0 28px 0 0;
+    margin: 0 28px 75px 0;
 }
 
 .modal__form{
@@ -62,14 +62,13 @@
 .modal__button{
     width: 358px;
     height: 50px;
-    margin: auto;
+    margin: 15px 22px 0;
     background: #000;
     text-align: center;
     font-family: 'Inter', arial, sans-serif;
     font-weight:  400;
     font-size: 18px;
     color: #fff;
-    margin-top: 48px;
 }
 
 .modal__button:hover{
@@ -80,11 +79,13 @@
 @media screen and (max-width:480px){
     .modal__container{
       max-width: 282px;
-      padding: 22px;
+      padding: 25px;
     }
 
     .modal__button{
         max-width: 238px;
+        margin-left: 0;
+        margin-right: 0;
     }
 
     .modal__close{
@@ -98,5 +99,10 @@
 
     .modal__heading{
         font-size: 18px;
+        margin-right: 0;
+    }
+
+    .modal__input{
+        padding-bottom: 13px;
     }
 }
