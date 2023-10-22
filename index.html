@@ -69,7 +69,9 @@
             placeholder="Description"
             required
           />
-          <button class="modal__button" type="submit">Save</button>
+          <button class="modal__button" id="edit-save-button" type="submit">
+            Save
+          </button>
         </form>
       </div>
     </div>
@@ -78,7 +80,11 @@
 
     <div class="modal" id="profile-add-card">
       <div class="modal__container">
-        <button class="modal__close" id="modal-add-close" type="button"></button>
+        <button
+          class="modal__close"
+          id="modal-add-close"
+          type="button"
+        ></button>
         <h2 class="modal__heading">New Place</h2>
         <form class="modal__form">
           <input
@@ -97,14 +103,19 @@
             placeholder="Image URL"
             required
           />
-          <button class="modal__button" type="submit">Save</button>
+          <button class="modal__button" id="add-save-button" type="submit">
+            Save
+          </button>
         </form>
       </div>
     </div>
 
     <template id="card-template">
       <li class="cards__card">
-        <img src="" alt="" class="cards__image" />
+        <div class="cards__surface">
+          <img src="" alt="" class="cards__image" />
+          <button class="cards__delete-button" type="button"></button>
+        </div>
         <div class="cards__description">
           <h2 class="cards__title"></h2>
           <button class="cards__like-button" type="button"></button>

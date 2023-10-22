@@ -34,7 +34,8 @@ const profileAddButton = document.querySelector(".profile__add-button");
 const profileAddModal = document.querySelector("#profile-add-card");
 const profileEditCloseButton = document.querySelector("#modal-close");
 const profileAddCloseButton = document.querySelector("#modal-add-close");
-const profileEditSaveButton = document.querySelector(".modal__button");
+const profileEditSaveButton = document.querySelector("#edit-save-button");
+const profileAddSaveButton = document.querySelector("#add-save-button");
 const profileTitle = document.querySelector(".profile__title");
 const profileDescription = document.querySelector(".profile__description");
 const profileTitleInput = document.querySelector("#profile-title-input");
@@ -55,11 +56,24 @@ function openPopup(modal) {
   modal.classList.add("modal__opened");
 }
 
+function renderCard(cardData, wrapper) {
+  const cardElement = getCardElement(cardData);
+  wrapper.prepend(cardElement);
+}
+
 function getCardElement(cardData) {
   const cardElement = cardTemplate.cloneNode(true);
   const cardImageEl = cardElement.querySelector(".cards__image");
   const cardTitleEl = cardElement.querySelector(".cards__title");
   const cardImageAlt = cardElement.querySelector(".cards__title");
+
+  cardElement
+    .querySelector(".cards__like-button")
+    .addEventListener("click", (event) => {
+      event.target.classList.toggle("cards__like-button_active");
+    });
+  const cardDeleteButtons = document.querySelectorAll("cards__delete-button");
+
   cardTitleEl.textContent = cardData.name;
   cardImageEl.src = cardData.link;
   cardImageAlt.alt = cardData.name;
@@ -72,6 +86,13 @@ function handleProfileEditSubmit(e) {
   profileTitle.textContent = profileTitleInput.value;
   profileDescription.textContent = profileDescriptionInput.value;
   closePopup(profileEditModal);
+}
+
+function handleProfileAddSubmit(e) {
+  e.preventDefault();
+  const name = profileTitleInput.value;
+  const link = profileDescriptionInput.value;
+  closePopup(profileAddModal);
 }
 /* listeners */
 
@@ -87,6 +108,7 @@ profileAddCloseButton.addEventListener("click", () => {
   closePopup(profileAddModal);
 });
 profileEditSaveButton.addEventListener("submit", handleProfileEditSubmit);
+profileAddSaveButton.addEventListener("submit", handleProfileAddSubmit);
 profileAddButton.addEventListener("click", () => {
   openPopup(profileAddModal);
 });
@@ -95,6 +117,3 @@ initialCards.forEach((cardData) => {
   const cardElement = getCardElement(cardData);
   cardListEl.append(cardElement);
 });
-
-const cardLikeButtons = document.querySelectorAll(".cards__like-button");
-console.log(cardLikeButtons);

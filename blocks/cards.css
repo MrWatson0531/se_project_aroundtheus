@@ -7,6 +7,7 @@
     list-style: none;
     border-radius: 10px;
     overflow: hidden;
+    position: relative;
 }
 .cards__list{
     display: grid;
@@ -20,8 +21,24 @@
 .cards__image{
     width: 282px;
     height: 282px;
+    z-index: -1;
 }
 
+.cards__delete-button{
+    background: transparent url(../images/Trash.svg);
+    width: 18px;
+    height: 19px;
+    border: none;
+    margin:0;
+    padding: 0;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.cards__surface{
+    display:flex;
+}
 .cards__description{
     font-family: 'Inter', Arial, sans-serif;
     font-weight: 900;
@@ -55,6 +72,12 @@
     width: 21px;
     height: 18px;
     border: none;
+    padding: 0;
+    margin: 0;
+}
+
+.cards__like-button_active{
+    background-image: url(../images/like-button-active.svg);
 }
 
 .cards__like-button:hover{
