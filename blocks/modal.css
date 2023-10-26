@@ -138,7 +138,9 @@
     .modal__input{
         padding-bottom: 13px;
     }
-    .modal__image-container{
-        max-width: 282px;
+
+    .modal__image{
+        max-width: 240px;
+        max-height: 300px;
     }
 }

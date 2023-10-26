@@ -134,7 +134,7 @@ profileAddCloseButton.addEventListener("click", () => {
 profileImageCloseButton.addEventListener("click", () => {
   closePopup(profileImageModal);
 });
-profileEditSaveButton.addEventListener("submit", handleProfileEditSubmit);
+profileEditForm.addEventListener("submit", handleProfileEditSubmit);
 profileAddForm.addEventListener("submit", handleProfileAddSubmit);
 
 profileAddButton.addEventListener("click", () => {
