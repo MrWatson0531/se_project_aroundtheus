@@ -1,7 +1,7 @@
 .cards{ 
 }
 
-.cards__card{
+.card{
     display: flex;
     flex-direction: column;
     list-style: none;
@@ -21,7 +21,10 @@
 .cards__image{
     width: 282px;
     height: 282px;
-    z-index: -1;
+}
+
+.cards__image:hover{
+    cursor: pointer;
 }
 
 .cards__delete-button{
@@ -32,8 +35,8 @@
     margin:0;
     padding: 0;
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 20px;
+    right: 20px;
 }
 
 .cards__surface{

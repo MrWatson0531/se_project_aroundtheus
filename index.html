@@ -52,7 +52,7 @@
       <div class="modal__container">
         <button class="modal__close" id="modal-close" type="button"></button>
         <h2 class="modal__heading">Edit Profile</h2>
-        <form class="modal__form">
+        <form class="modal__form" id="edit-modal-form">
           <input
             type="text"
             name="title"
@@ -86,11 +86,11 @@
           type="button"
         ></button>
         <h2 class="modal__heading">New Place</h2>
-        <form class="modal__form">
+        <form class="modal__form" id="add-modal-form">
           <input
             type="text"
             name="title"
-            id="profile-title-input"
+            id="profile-add-title-input"
             class="modal__input"
             placeholder="Title"
             required
@@ -98,7 +98,7 @@
           <input
             type="text"
             name="url"
-            id="profile-description-input"
+            id="profile-add-description-input"
             class="modal__input"
             placeholder="Image URL"
             required
@@ -110,8 +110,20 @@
       </div>
     </div>
 
+    <div class="modal" id="profile-image-card">
+      <div class="modal__image-container">
+        <img class="modal__image" src="" alt="" />
+        <h2 class="modal__image-text"></h2>
+        <button
+          class="modal__close"
+          id="modal-image-close"
+          type="button"
+        ></button>
+      </div>
+    </div>
+
     <template id="card-template">
-      <li class="cards__card">
+      <li class="card">
         <div class="cards__surface">
           <img src="" alt="" class="cards__image" />
           <button class="cards__delete-button" type="button"></button>
