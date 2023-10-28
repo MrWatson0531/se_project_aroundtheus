@@ -93,8 +93,8 @@ function getCardElement(cardData) {
     });
 
   cardImageEl.addEventListener("click", () => {
-    profileImageEl.src = cardData.link;
-    profileImageEl.alt = cardData.name;
+    cardImageEl.src = cardData.link;
+    cardImageEl.alt = cardData.name;
     imageText.textContent = cardData.name;
 
     openPopup(imageModal);
