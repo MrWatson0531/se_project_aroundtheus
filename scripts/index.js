@@ -59,7 +59,7 @@ const cardTemplate =
 const cardTitleInput = document.querySelector("#profile-title-input");
 const cardUrlInput = document.querySelector("#profile-description-input");
 const cardsWrap = document.querySelector("#card-template");
-const allInputs = document.querySelectorAll(".modal__input");
+const allInputs = cardAddForm.querySelectorAll(".modal__input");
 // /* functions */
 
 function closePopup(modal) {
