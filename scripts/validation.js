@@ -73,6 +73,11 @@ function enableValidation(options) {
   });
 }
 
+function resetValidation (modal) {
+  const errorMessages = modal.querySelectorAll(".modal__error");
+  errorMessages.forEach((error) => { error.textContent = ""; 
+}); 
+}
 const config = {
   formSelector: ".modal__form",
   inputSelector: ".modal__input",

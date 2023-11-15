@@ -89,9 +89,14 @@
     background: gray;
 }
 
-.modal__button:hover{
+.modal__button:hover:not(:disabled){
     opacity: 0.6;
     cursor: pointer;
+}
+
+.modal__button_disabled:hover { 
+    opacity: 1;
+    cursor: default;
 }
 
 .modal__image{
