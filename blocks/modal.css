@@ -85,8 +85,8 @@
     border: none;
 }
 
-.modal__button-disabled{
-    background: #fff;
+.modal__button_disabled{
+    background: gray;
 }
 
 .modal__button:hover{
