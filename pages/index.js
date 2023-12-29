@@ -117,6 +117,13 @@ function handleCardAddSubmit(e) {
   closePopup(addModal);
   e.target.reset();
 }
+
+function resetValidation(modal) {
+  const errorMessages = modal.querySelectorAll(".modal__error");
+  errorMessages.forEach((error) => {
+    error.textContent = "";
+  });
+}
 /* listeners */
 
 profileEditButton.addEventListener("click", () => {

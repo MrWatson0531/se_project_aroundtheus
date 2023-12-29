@@ -55,4 +55,11 @@ export default class FormValidator{
     });
     setEventListeners(formElement, options);
   }
+
+  resetValidation() {
+  const errorMessages = modal.querySelectorAll(this._errorClass);
+  errorMessages.forEach((error) => {
+    error.textContent = "";
+  });
+ }
 }
