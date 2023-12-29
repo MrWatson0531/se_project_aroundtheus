@@ -1,9 +1,9 @@
 export default class Card {
-  constructor({ name, link }, cardSelector) {
-    this._name = name;
-    this._link = link;
+  constructor(data, cardSelector, handleImageClick) {
+    this._name = data.name;
+    this._link = data.link;
     this._cardSelector = cardSelector;
-    console.log({ name, link });
+    this._handleImageClick = handleImageClick;
   }
 
   _setEventListeners() {
@@ -21,16 +21,33 @@ export default class Card {
       .addEventListener("click", (event) => {
         event.target.closest(".card").remove();
       });
+
+    // "#profile-image-card"
+    //this._cardElement.querySelector(".cards__image").src =
+    //this.link.addEventListener("click", () => {
+    //this._handleImageClick(this);
+    //});
+
+    const cardImage = this._cardElement.querySelector(".cards__image");
+
+    cardImage.addEventListener("click", () => {
+      this._handleImageClick(this._name, this._link);
+    });
   }
 
   getView() {
+    // get card view
     this._cardElement = document
       .querySelector(this._cardSelector)
       .content.querySelector(".card")
       .cloneNode(true);
-    // get card view
     // set event listeners
     this._setEventListeners();
+
+    this._cardElement.querySelector(".cards__image").src = this._link;
+    this._cardElement.querySelector(".cards__image").alt = this._name;
+    this._cardElement.querySelector(".cards__title").textContent = this._name;
+
     // return the card
     return this._cardElement;
   }

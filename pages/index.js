@@ -31,16 +31,10 @@ const cardData = {
   name: "Yosemite Valley",
   link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
 };
+//  const card = new Card(cardData).getView();
+// wrapper.prepend(card);
+//}
 
-const card = new Card(cardData, "#card-template");
-
-initialCards.foreach((cardData) => {
-  renderCard(cardData, wrapper);
-});
-{
-  const card = new Card(cardData).getView();
-  wrapper.prepend(card);
-}
 /*
 
 declarations
@@ -90,41 +84,22 @@ function openPopup(modal) {
   document.addEventListener("keydown", handleEscape);
 }
 
-function renderCard(cardData) {
-  const cardElement = getCardElement(cardData);
-  cardListEl.prepend(cardElement);
+function handleImageClick(name, link) {
+  const modalImage = document.querySelector(".modal__image");
+  modalImage.src = this._link;
+  modalImage.alt = this._name;
+  modalImage.textContent = this._name;
+
+  // set src of modalImage
+
+  // get title element and set text
+  openPopup(imageModal);
 }
 
-function getCardElement(cardData) {
-  const cardElement = cardTemplate.cloneNode(true);
-  const cardImageEl = cardElement.querySelector(".cards__image");
-  const cardTitleEl = cardElement.querySelector(".cards__title");
-
-  cardElement
-    .querySelector(".cards__like-button")
-    .addEventListener("click", (event) => {
-      event.target.classList.toggle("cards__like-button_active");
-    });
-
-  cardElement
-    .querySelector(".cards__delete-button")
-    .addEventListener("click", (event) => {
-      event.target.closest(".card").remove();
-    });
-
-  cardImageEl.addEventListener("click", () => {
-    previewImageEl.src = cardData.link;
-    previewImageEl.alt = cardData.name;
-    imageText.textContent = cardData.name;
-
-    openPopup(imageModal);
-  });
-
-  cardTitleEl.textContent = cardData.name;
-  cardImageEl.src = cardData.link;
-  cardImageEl.alt = cardData.name;
-
-  return cardElement;
+function renderCard(cardData) {
+  const card = new Card(cardData, "#card-template", handleImageClick);
+  const cardElement = card.getView();
+  cardListEl.prepend(cardElement);
 }
 
 function handleProfileEditSubmit(evt) {
@@ -169,8 +144,10 @@ cardAddButton.addEventListener("click", () => {
 });
 
 initialCards.forEach((cardData) => {
-  const cardElement = getCardElement(cardData);
-  cardListEl.append(cardElement);
+  // const cardElement = getCardElement(cardData);
+  console.log(0);
+  renderCard(cardData);
+  // cardListEl.append(cardElement);
 });
 
 const handleCLose = (e) => {
