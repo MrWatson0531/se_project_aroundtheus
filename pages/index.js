@@ -27,6 +27,15 @@ const initialCards = [
   },
 ];
 
+const config = {
+  formSelector: ".modal__form",
+  inputSelector: ".modal__input",
+  submitButtonSelector: ".modal__button",
+  inactiveButtonClass: "modal__button_disabled",
+  inputErrorClass: ".modal__input_type_error",
+  errorClass: "modal__error_visible",
+};
+
 const cardData = {
   name: "Yosemite Valley",
   link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
@@ -180,3 +189,8 @@ popups.forEach((modal) => {
     handleCLose(e);
   });
 });
+const editFormValidator = new FormValidator(config, profileEditForm);
+editFormValidator.enableValidation();
+
+const addFormValidator = new FormValidator(config, cardAddForm);
+addFormValidator.enableValidation();
