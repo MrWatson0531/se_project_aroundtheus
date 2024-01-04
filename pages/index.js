@@ -74,12 +74,8 @@ const profileDescriptionInput = document.querySelector(
 const profileEditForm = profileEditModal.querySelector("#edit-modal-form");
 const cardAddForm = addModal.querySelector("#add-modal-form");
 const cardListEl = document.querySelector(".cards__list");
-const cardTemplate =
-  document.querySelector("#card-template").content.firstElementChild;
-const cardTitleInput = document.querySelector("#profile-title-input");
-const cardUrlInput = document.querySelector("#profile-description-input");
-const cardsWrap = document.querySelector("#card-template");
-const allInputs = cardAddForm.querySelectorAll(".modal__input");
+
+const cardTemplateSelector = "#card-template";
 
 // /* functions */
 
@@ -94,10 +90,10 @@ function openPopup(modal) {
 }
 
 function handleImageClick(name, link) {
-  const modalImage = document.querySelector(".modal__image");
-  modalImage.src = this._link;
-  modalImage.alt = this._name;
-  modalImage.textContent = this._name;
+  const modalImage = previewImageEl;
+  modalImage.src = link;
+  modalImage.alt = name;
+  modalImage.textContent = name;
 
   // set src of modalImage
 
@@ -105,10 +101,28 @@ function handleImageClick(name, link) {
   openPopup(imageModal);
 }
 
-function renderCard(cardData) {
-  const card = new Card(cardData, "#card-template", handleImageClick);
-  const cardElement = card.getView();
-  cardListEl.prepend(cardElement);
+// 1. rename cardElement2 to a normal name, w/o number
+// 2. fill cardElement function
+function getCardElement(data) {
+  const cardTemplate = document.querySelector(".card");
+  cloneNode;
+  /**
+   * 1. find the template
+   * 2. get li element from it
+   * 3. clone it
+   * 4. fill the new element which was cloned from template
+   * 5. return this new element
+   * blablablaImage.src = data.link (or data.url)
+   */
+}
+
+function createCard(cardData) {
+  return new Card(cardData, cardTemplateSelector, handleImageClick).getView();
+}
+
+function renderCard(cardData, cardsWrapper) {
+  const cardElement = createCard(cardData);
+  cardsWrapper.prepend(cardElement);
 }
 
 function handleProfileEditSubmit(evt) {
@@ -122,17 +136,11 @@ function handleCardAddSubmit(e) {
   e.preventDefault();
   const name = cardAddTitleInput.value;
   const link = cardAddDescriptionInput.value;
-  renderCard({ name, link });
+  renderCard({ name, link }, cardListEl);
   closePopup(addModal);
   e.target.reset();
 }
 
-function resetValidation(modal) {
-  const errorMessages = modal.querySelectorAll(".modal__error");
-  errorMessages.forEach((error) => {
-    error.textContent = "";
-  });
-}
 /* listeners */
 
 profileEditButton.addEventListener("click", () => {
@@ -155,18 +163,19 @@ profileEditForm.addEventListener("submit", handleProfileEditSubmit);
 cardAddForm.addEventListener("submit", handleCardAddSubmit);
 
 cardAddButton.addEventListener("click", () => {
-  resetValidation(addModal);
+  addFormValidator.resetValidation();
   openPopup(addModal);
 });
 
 initialCards.forEach((cardData) => {
   // const cardElement = getCardElement(cardData);
-  console.log(0);
-  renderCard(cardData);
+  // console.log(0);
+  // createCard(cardData);
   // cardListEl.append(cardElement);
+  renderCard(cardData, cardListEl);
 });
 
-const handleCLose = (e) => {
+const handleClose = (e) => {
   if (
     e.target.classList.contains("modal") ||
     e.target.classList.contains("modal__close")
@@ -186,7 +195,7 @@ const popups = document.querySelectorAll(".modal");
 popups.forEach((modal) => {
   // add mousedown event listener
   modal.addEventListener("mousedown", (e) => {
-    handleCLose(e);
+    handleClose(e);
   });
 });
 const editFormValidator = new FormValidator(config, profileEditForm);

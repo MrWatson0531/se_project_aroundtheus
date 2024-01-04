@@ -68,9 +68,13 @@ export default class FormValidator {
   }
 
   resetValidation() {
-    const errorMessages = modal.querySelectorAll(this._errorClass);
-    errorMessages.forEach((error) => {
-      error.textContent = "";
+    this._toggleButtonState(
+      this._inputEls,
+      this._submitButton,
+      this._inactiveButtonClass
+    );
+    this._inputEls.forEach((el) => {
+      this._hideInputError(el);
     });
   }
 }
