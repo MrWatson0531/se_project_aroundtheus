@@ -136,16 +136,6 @@ profileEditButton.addEventListener("click", () => {
   openPopup(profileEditModal);
 });
 
-profileEditCloseButton.addEventListener("click", () => {
-  closePopup(profileEditModal);
-});
-
-cardAddCloseButton.addEventListener("click", () => {
-  closePopup(addModal);
-});
-cardImageCloseButton.addEventListener("click", () => {
-  closePopup(imageModal);
-});
 profileEditForm.addEventListener("submit", handleProfileEditSubmit);
 cardAddForm.addEventListener("submit", handleCardAddSubmit);
 
