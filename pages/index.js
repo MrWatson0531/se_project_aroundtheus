@@ -91,29 +91,16 @@ function openPopup(modal) {
 
 function handleImageClick(name, link) {
   const modalImage = previewImageEl;
+  const modalText = imageText;
   modalImage.src = link;
   modalImage.alt = name;
   modalImage.textContent = name;
+  modalText.textContent = name;
 
   // set src of modalImage
 
   // get title element and set text
   openPopup(imageModal);
-}
-
-// 1. rename cardElement2 to a normal name, w/o number
-// 2. fill cardElement function
-function getCardElement(data) {
-  const cardTemplate = document.querySelector(".card");
-  cloneNode;
-  /**
-   * 1. find the template
-   * 2. get li element from it
-   * 3. clone it
-   * 4. fill the new element which was cloned from template
-   * 5. return this new element
-   * blablablaImage.src = data.link (or data.url)
-   */
 }
 
 function createCard(cardData) {
