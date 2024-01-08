@@ -1,3 +1,4 @@
+import "../pages/index.css";
 import Card from "../components/Card.js";
 import FormValidator from "../components/FormValidator.js";
 const initialCards = [
@@ -180,3 +181,28 @@ editFormValidator.enableValidation();
 
 const addFormValidator = new FormValidator(config, cardAddForm);
 addFormValidator.enableValidation();
+console.log("hello world");
+
+module: {
+  rules: [
+    {
+      test: /\.js$/,
+      loader: "babel-loader",
+      exclude: "/node_modules/"
+    },
+    {
+      test: /\.css$/,
+      use: [
+        MiniCssExtractPlugin.loader,
+        {
+          loader: "css-loader"
+        },
+      ],
+    },
+    {
+      // add the rule for processing files
+      test: /\.(png|svg|jpg|jpeg|gif|woff(2)?|eot|ttf|otf)$/,
+      type: "asset/resource"
+    },
+  ]
+}
