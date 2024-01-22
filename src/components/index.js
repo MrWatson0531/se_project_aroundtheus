@@ -1,6 +1,7 @@
 import "../pages/index.css";
 import Card from "../components/Card.js";
 import FormValidator from "../components/FormValidator.js";
+import Popup from "../components/PopUp.js";
 
 const initialCards = [
   {
@@ -57,12 +58,7 @@ const cardAddButton = document.querySelector(".profile__add-button");
 const addModal = document.querySelector("#profile-add-card");
 const imageModal = document.querySelector("#profile-image-card");
 const imageText = document.querySelector(".modal__image-text");
-const previewImageEl = document.querySelector(".modal__image");
-const cardImageCloseButton = document.querySelector("#modal-image-close");
-const profileEditCloseButton = document.querySelector("#modal-close");
-const cardAddCloseButton = document.querySelector("#modal-add-close");
-const profileEditSaveButton = document.querySelector("#edit-save-button");
-const cardAddSaveButton = document.querySelector("#add-save-button");
+const previewImageEl = document.querySelector(".modal__image"); 
 const profileTitle = document.querySelector(".profile__title");
 const profileDescription = document.querySelector(".profile__description");
 const profileTitleInput = document.querySelector("#profile-title-input");
@@ -170,19 +166,20 @@ function handleEscape(e) {
   }
 }
 // find all popups
-const popups = document.querySelectorAll(".modal");
-popups.forEach((modal) => {
+// const popups = document.querySelectorAll(".modal");
+//popups.forEach((modal) => {
   // add mousedown event listener
-  modal.addEventListener("mousedown", (e) => {
+  //modal.addEventListener("mousedown", (e) => {
     handleClose(e);
-  });
-});
+  //});
+//});
 const editFormValidator = new FormValidator(config, profileEditForm);
 editFormValidator.enableValidation();
 
 const addFormValidator = new FormValidator(config, cardAddForm);
 addFormValidator.enableValidation();
-console.log("hello world");
+
+const itemSection = new Section({items: initialItems, renderer: (data) => itemSection.addItem(createCard(data))})
 
 module: {
   rules: [

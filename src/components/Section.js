@@ -1,5 +1,19 @@
+import Card from "../components/Card.js";
 export default class Section {
-    constructor ({items, renderer}, CSSselector) {
-        this._item = 
+    constructor ({items, renderer}, cssSelector) {
+        this._items = items;
+        this._renderer = renderer;
+        this._container = document.querySelector(cssSelector);
+    }
+
+    renderItems() {
+        //use forEach to "iterate" over each (item)
+        this._items.forEach((item) => {
+            //use this._renderer to render each (item) 
+            this._renderer(item);
+        })
+    }
+    addItem(element){
+        this._container.prepend(element);
     }
 }
