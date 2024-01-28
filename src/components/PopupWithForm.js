@@ -1,22 +1,23 @@
-import Popup from "../PopUp.js";
-class PopupWithForm extends Popup {
-    constructor (popupSelector, handleFormSubmit) {
-        super({popupSelector});
-        this._handleFormSubmit = handleFormSubmit;
-        _popupForm = this._popupElement.querySelector(".modal__form");
-    }
+import Popup from "./PopUp.js";
+export default class PopupWithForm extends Popup {
+  constructor(popupSelector, handleFormSubmit) {
+    super({ popupSelector });
+    this._handleFormSubmit = handleFormSubmit;
+    this._popupForm = this._popupElement.querySelector(".modal__form");
+  }
 
-    open(){
-        super.open();
-    }
+  // close() {
+  //   this._popupForm.reset();
+  //   super.close();
+  // }
 
-    close(){
-        _popupForm.reset();
-        super.close();
-     } 
-    }
-
-     _popupWithform.newCardPopup = new PopupWithForm("#profile-add-card", () => {});
-
- newCardPopup.open();
- newCardPopup.close();
+  setEventListeners() {
+    //event listeners
+    this._popupForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      this._handleFormSubmit();
+      this.close();
+    });
+    super.setEventListeners()
+  }
+}
