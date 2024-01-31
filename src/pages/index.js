@@ -92,7 +92,6 @@ function closePopup(modal) {
   document.removeEventListener("keydown", handleEscape);
 }
 
-
 function handleImageClick(name, link) {
   previewImageModal.open(name, link);
 }
@@ -130,7 +129,7 @@ profileEditButton.addEventListener("click", () => {
 });
 
 profileEditForm.addEventListener("submit", handleProfileEditSubmit);
-cardAddForm.addEventListener("submit", handleCardAddSubmit);
+//cardAddForm.addEventListener("submit", handleCardAddSubmit);
 
 cardAddButton.addEventListener("click", () => {
   addFormValidator.resetValidation();
