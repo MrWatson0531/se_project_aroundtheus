@@ -78,7 +78,7 @@ addCardModal.setEventListeners();
 
 const editCardModal = new PopupWithForm(
   "#profile-edit-modal",
-  handleCardAddSubmit
+  handleProfileEditSubmit
 );
 editCardModal.setEventListeners();
 
@@ -106,7 +106,7 @@ function renderCard(cardData, cardsWrapper) {
 }
 
 function handleProfileEditSubmit(evt) {
-  evt.preventDefault();
+  // evt.preventDefault();
   profileTitle.textContent = profileTitleInput.value;
   profileDescription.textContent = profileDescriptionInput.value;
   closePopup(profileEditModal);
