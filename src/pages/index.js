@@ -87,10 +87,10 @@ previewImageModal.setEventListeners();
 
 // /* functions */
 
-// function closePopup(modal) {
-//   modal.classList.remove("modal_opened");
-//   document.removeEventListener("keydown", handleEscape);
-// }
+function closePopup(modal) {
+  modal.classList.remove("modal_opened");
+  document.removeEventListener("keydown", handleEscape);
+}
 
 
 function handleImageClick(name, link) {
@@ -117,8 +117,8 @@ function handleCardAddSubmit() {
   const name = cardAddTitleInput.value;
   const link = cardAddDescriptionInput.value;
   renderCard({ name, link }, cardListEl);
+  cardAddForm.reset();
   closePopup(addModal);
-  e.target.reset();
 }
 
 /* listeners */
