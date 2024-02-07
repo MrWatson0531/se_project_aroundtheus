@@ -35,12 +35,18 @@ editCardModal.setEventListeners();
 
 const previewImageModal = new PopupWithImage("#preview-image-modal");
 previewImageModal.setEventListeners();
-
+console.log("initialCards", initialCards);
 const userInfo = new UserInfo(".profile__title", ".profile__description");
 const itemSection = new Section({
   items: initialCards,
-  renderer: (data) => itemSection.addItem(createCard(data)),
+  renderer: (data) => {
+    console.log(data);
+    return itemSection.addItem(createCard(data));
+  },
+  cssSelector: ".cards__list",
 });
+itemSection.renderItems();
+console.log(itemSection);
 
 const addCardModal = new PopupWithForm(
   "#profile-add-card",
