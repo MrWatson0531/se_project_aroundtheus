@@ -60,6 +60,7 @@ function handleProfileEditSubmit(inputValues) {
 }
 
 function handleCardAddSubmit(data) {
+  console.log(data);
   renderCard(data, cardListEl);
   cardAddForm.reset();
 }

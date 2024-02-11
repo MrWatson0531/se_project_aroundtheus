@@ -83,3 +83,70 @@
         </form>
       </div>
     </div>
+
+    <!-- Add card modal-->
+
+    <div class="modal" id="profile-add-card">
+      <div class="modal__container">
+        <button
+          class="modal__close"
+          id="modal-add-close"
+          type="button"
+        ></button>
+        <h2 class="modal__heading">New Place</h2>
+        <form class="modal__form" id="add-modal-form">
+          <input
+            type="text"
+            name="title"
+            id="profile-add-title-input"
+            class="modal__input modal__input_type_error"
+            placeholder="Title"
+            minlength="2"
+            maxlength="30"
+            required
+          />
+          <span class="modal__error" id="profile-add-title-input-error"></span>
+          <input
+            type="url"
+            name="link"
+            id="profile-add-description-input"
+            class="modal__input modal__input_type_error"
+            placeholder="Image URL"
+            required
+          />
+          <span
+            class="modal__error"
+            id="profile-add-description-input-error"
+          ></span>
+          <button class="modal__button" id="add-save-button" type="submit">
+            Save
+          </button>
+        </form>
+      </div>
+    </div>
+    <div class="modal" id="preview-image-modal">
+      <div class="modal__image-container">
+        <img class="modal__image" src="#" alt="#" />
+        <h2 class="modal__image-text"></h2>
+        <button
+          class="modal__close"
+          id="modal-image-close"
+          type="button"
+        ></button>
+      </div>
+    </div>
+
+    <template id="card-template">
+      <li class="card">
+        <div class="cards__surface">
+          <img src="#" alt="#" class="cards__image" />
+          <button class="cards__delete-button" type="button"></button>
+        </div>
+        <div class="cards__description">
+          <h2 class="cards__title"></h2>
+          <button class="cards__like-button" type="button"></button>
+        </div>
+      </li>
+    </template>
+  </body>
+</html>
