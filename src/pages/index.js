@@ -13,6 +13,8 @@ const cardAddButton = document.querySelector(".profile__add-button");
 const addModal = document.querySelector("#profile-add-card");
 
 const profileEditForm = profileEditModal.querySelector("#edit-modal-form");
+const nameInput = document.querySelector("#profile-title-input");
+const jobInput = document.querySelector("#profile-description-input");
 const cardAddForm = addModal.querySelector("#add-modal-form");
 const cardListEl = document.querySelector(".cards__list");
 
@@ -29,9 +31,7 @@ previewImageModal.setEventListeners();
 const userInfo = new UserInfo(".profile__title", ".profile__description");
 const itemSection = new Section({
   items: initialCards,
-  renderer: (data) => {
-    return itemSection.addItem(createCard(data));
-  },
+  renderer: renderCard,
   cssSelector: ".cards__list",
 });
 itemSection.renderItems();
@@ -68,6 +68,9 @@ function handleCardAddSubmit(data) {
 /* listeners */
 
 profileEditButton.addEventListener("click", () => {
+  const useData = userInfo.getUserInfo();
+  nameInput.value = useData.name;
+  jobInput.value = useData.job;
   editCardModal.open();
 });
 
