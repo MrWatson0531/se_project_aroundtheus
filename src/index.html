@@ -124,6 +124,9 @@
         </form>
       </div>
     </div>
+
+<!-- image preview modal -->
+
     <div class="modal" id="preview-image-modal">
       <div class="modal__image-container">
         <img class="modal__image" src="#" alt="#" />
@@ -133,6 +136,22 @@
           id="modal-image-close"
           type="button"
         ></button>
+      </div>
+    </div>
+
+    <div class="modal" id="card-delete-modal">
+      <div class="modal__container">
+        <button
+          class="modal__close"
+          id="modal-delete-close"
+          type="button"
+        ></button>
+        <h2 class="modal__heading">Are you sure?</h2>
+        <form class="modal__form" id="delete-modal-form">
+          <button class="modal__button" id="delete-sure-button" type="submit">
+            Yes
+          </button>
+        </form>
       </div>
     </div>
 

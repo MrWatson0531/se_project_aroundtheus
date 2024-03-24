@@ -17,7 +17,7 @@ export default class Card {
 
     // ".cards__delete-button"
     this._cardElement
-      .querySelector(".cards__delete-button")
+      .querySelector("#delete-sure-button")
       .addEventListener("click", (event) => {
         event.target.closest(".card").remove();
       });

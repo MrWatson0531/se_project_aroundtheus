@@ -11,11 +11,14 @@ const profileEditButton = document.querySelector("#profile-edit-button");
 const profileEditModal = document.querySelector("#profile-edit-modal");
 const cardAddButton = document.querySelector(".profile__add-button");
 const addModal = document.querySelector("#profile-add-card");
+const cardDeleteButton = document.querySelector(".cards__delete-button");
+const deleteModal = document.querySelector("#card-delete-modal");
 
 const profileEditForm = profileEditModal.querySelector("#edit-modal-form");
 const nameInput = document.querySelector("#profile-title-input");
 const jobInput = document.querySelector("#profile-description-input");
 const cardAddForm = addModal.querySelector("#add-modal-form");
+const cardDeleteForm = deleteModal.querySelector("delete-modal-form");
 const cardListEl = document.querySelector(".cards__list");
 
 const cardTemplateSelector = "#card-template";
@@ -65,6 +68,10 @@ function handleCardAddSubmit(data) {
   cardAddForm.reset();
 }
 
+function handleCardDelete() {
+  itemSection.removeItem(cardElement);
+}
+
 /* listeners */
 
 profileEditButton.addEventListener("click", () => {
@@ -77,6 +84,10 @@ profileEditButton.addEventListener("click", () => {
 cardAddButton.addEventListener("click", () => {
   addFormValidator.resetValidation();
   addCardModal.open();
+});
+
+cardDeleteButton.addEventListener("click", () => {
+  cardDeleteForm.open();
 });
 
 const editFormValidator = new FormValidator(config, profileEditForm);
