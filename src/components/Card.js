@@ -1,9 +1,10 @@
 export default class Card {
-  constructor(data, cardSelector, handleImageClick) {
+  constructor(data, cardSelector, handleImageClick, handleDeleteClick) {
     this._name = data.name; // title
     this._link = data.link; // url
     this._cardSelector = cardSelector;
     this._handleImageClick = handleImageClick;
+    this._handleDeleteClick = handleDeleteClick;
   }
 
   _setEventListeners() {
@@ -16,17 +17,15 @@ export default class Card {
       });
 
     // ".cards__delete-button"
-    this._cardElement
-      .querySelector("#delete-sure-button")
-      .addEventListener("click", (event) => {
-        event.target.closest(".card").remove();
-      });
+    console.log(cardDeleteForm);
+    const cardDeleteButton = this._cardElement.querySelector(
+      ".cards__delete-button"
+    );
 
-    // "#profile-image-card"
-    //this._cardElement.querySelector(".cards__image").src =
-    //this.link.addEventListener("click", () => {
-    //this._handleImageClick(this);
-    //});
+    cardDeleteButton.addEventListener("click", () => {
+      // cardDeleteForm.open();
+      this._handleDeleteClick(this._cardSelector);
+    });
 
     const cardImage = this._cardElement.querySelector(".cards__image");
 
@@ -34,6 +33,17 @@ export default class Card {
       this._handleImageClick(this._name, this._link);
     });
   }
+
+  open() {
+    this._popupElement.classList.add("modal_opened");
+    document.addEventListener("keydown", this._handleEscape);
+  }
+
+  _handleEscape = (e) => {
+    if (e.key === "Escape") {
+      this.close();
+    }
+  };
 
   getView() {
     // get card view

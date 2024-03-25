@@ -4,6 +4,8 @@ export default class PopupWithForm extends Popup {
     super({ popupSelector });
     this._handleFormSubmit = handleFormSubmit;
     this._popupForm = this._popupElement.querySelector(".modal__form");
+    this._popupDeleteForm = this._popupElement.querySelector("#delete-modal-form");
+    this._popupButton = this._popupElement.querySelector("#delete-sure-button");
   }
 
   _getInputValues() {
@@ -28,6 +30,10 @@ export default class PopupWithForm extends Popup {
       this._handleFormSubmit(inputValues);
       this.close();
     });
+    // this._popupButton.addEventListener("submit", (e) =>{
+    //   e.preventDefault();
+    //   cardDeleteForm.close();
+    // });
     super.setEventListeners();
   }
 }

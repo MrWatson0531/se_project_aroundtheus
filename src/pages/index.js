@@ -13,12 +13,11 @@ const cardAddButton = document.querySelector(".profile__add-button");
 const addModal = document.querySelector("#profile-add-card");
 const cardDeleteButton = document.querySelector(".cards__delete-button");
 const deleteModal = document.querySelector("#card-delete-modal");
-
 const profileEditForm = profileEditModal.querySelector("#edit-modal-form");
 const nameInput = document.querySelector("#profile-title-input");
 const jobInput = document.querySelector("#profile-description-input");
 const cardAddForm = addModal.querySelector("#add-modal-form");
-const cardDeleteForm = deleteModal.querySelector("delete-modal-form");
+const cardDeleteForm = deleteModal.querySelector("#delete-modal-form");
 const cardListEl = document.querySelector(".cards__list");
 
 const cardTemplateSelector = "#card-template";
@@ -45,12 +44,23 @@ const addCardModal = new PopupWithForm(
 );
 addCardModal.setEventListeners();
 
+const deleteCardModal = new PopupWithForm(
+  "#card-delete-modal",
+  handleCardDelete
+);
+deleteCardModal.setEventListeners();
+
 function handleImageClick(name, link) {
   previewImageModal.open(name, link);
 }
 
 function createCard(cardData) {
-  return new Card(cardData, cardTemplateSelector, handleImageClick).getView();
+  return new Card(
+    cardData,
+    cardTemplateSelector,
+    handleImageClick,
+    handleDeleteClick
+  ).getView();
 }
 
 function renderCard(cardData) {
@@ -68,8 +78,9 @@ function handleCardAddSubmit(data) {
   cardAddForm.reset();
 }
 
-function handleCardDelete() {
-  itemSection.removeItem(cardElement);
+function handleDeleteClick(cardSelector) { // ID will come from the CARD
+  console.log(cardSelector);
+  cardDeleteForm.open(cardSelector);
 }
 
 /* listeners */
@@ -86,9 +97,9 @@ cardAddButton.addEventListener("click", () => {
   addCardModal.open();
 });
 
-cardDeleteButton.addEventListener("click", () => {
-  cardDeleteForm.open();
-});
+// cardDeleteButton.addEventListener("click", () => {
+//   cardDeleteForm.open();
+// });
 
 const editFormValidator = new FormValidator(config, profileEditForm);
 editFormValidator.enableValidation();
