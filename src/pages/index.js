@@ -6,12 +6,12 @@ import PopupWithForm from "../components/PopupWithForm.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import UserInfo from "../components/UserInfo.js";
 import { initialCards, config } from "../utils/constants.js";
+import Api from "../components/API.js";
 
 const profileEditButton = document.querySelector("#profile-edit-button");
 const profileEditModal = document.querySelector("#profile-edit-modal");
 const cardAddButton = document.querySelector(".profile__add-button");
 const addModal = document.querySelector("#profile-add-card");
-const cardDeleteButton = document.querySelector(".cards__delete-button");
 const deleteModal = document.querySelector("#card-delete-modal");
 const profileEditForm = profileEditModal.querySelector("#edit-modal-form");
 const nameInput = document.querySelector("#profile-title-input");
@@ -22,6 +22,15 @@ const cardListEl = document.querySelector(".cards__list");
 
 const cardTemplateSelector = "#card-template";
 
+const api = new Api({
+  baseUrl: https://around-api.en.tripleten-services.com/v1,
+  authToken: "6a75e942-1cdf-4570-be93-f1316f67106a"
+})
+
+api.getCardList().then(item => {
+  itemSection.renderItems(item);
+});
+
 const editCardModal = new PopupWithForm(
   "#profile-edit-modal",
   handleProfileEditSubmit
@@ -30,13 +39,15 @@ editCardModal.setEventListeners();
 
 const previewImageModal = new PopupWithImage("#preview-image-modal");
 previewImageModal.setEventListeners();
+
 const userInfo = new UserInfo(".profile__title", ".profile__description");
+
 const itemSection = new Section({
   items: initialCards,
   renderer: renderCard,
   cssSelector: ".cards__list",
 });
-itemSection.renderItems();
+
 
 const addCardModal = new PopupWithForm(
   "#profile-add-card",
@@ -97,10 +108,6 @@ cardAddButton.addEventListener("click", () => {
   addFormValidator.resetValidation();
   addCardModal.open();
 });
-
-// cardDeleteButton.addEventListener("click", () => {
-//   cardDeleteForm.open();
-// });
 
 const editFormValidator = new FormValidator(config, profileEditForm);
 editFormValidator.enableValidation();
