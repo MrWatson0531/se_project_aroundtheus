@@ -46,7 +46,7 @@ addCardModal.setEventListeners();
 
 const deleteCardModal = new PopupWithForm(
   "#card-delete-modal",
-  handleCardDelete
+  handleDeleteClick
 );
 deleteCardModal.setEventListeners();
 
@@ -78,9 +78,10 @@ function handleCardAddSubmit(data) {
   cardAddForm.reset();
 }
 
-function handleDeleteClick(cardSelector) { // ID will come from the CARD
-  console.log(cardSelector);
-  cardDeleteForm.open(cardSelector);
+function handleDeleteClick(cardSelector) {
+  // ID will come from the CARD
+  console.log(cardDeleteForm);
+  deleteCardModal.open(cardSelector);
 }
 
 /* listeners */

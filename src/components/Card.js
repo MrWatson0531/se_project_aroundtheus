@@ -17,11 +17,12 @@ export default class Card {
       });
 
     // ".cards__delete-button"
-    console.log(cardDeleteForm);
+    
     const cardDeleteButton = this._cardElement.querySelector(
       ".cards__delete-button"
     );
-
+    console.log(cardDeleteButton);
+    
     cardDeleteButton.addEventListener("click", () => {
       // cardDeleteForm.open();
       this._handleDeleteClick(this._cardSelector);

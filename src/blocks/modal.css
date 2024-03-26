@@ -56,7 +56,7 @@
     font-size: 24px;
     font-weight: 900;
     height: 23px;
-    margin: 0 28px 75px 0;
+    margin: 0 28px 75px 0px;
 }
 
 .modal__form{
@@ -84,6 +84,7 @@
     color: #fff;
     border: none;
 }
+
 
 .modal__button_disabled{
     background: gray;
